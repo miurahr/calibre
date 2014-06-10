@@ -20,6 +20,7 @@ class UniNoHimituKichiBlog(BasicNewsRecipe):
     encoding      = 'utf-8'
     keep_only_tags = [{'class':'entry_head'},{'class':'subContentsInner'}]
     feeds          = [(u'blog', u'http://feedblog.ameba.jp/rss/ameblo/sauta19/rss20.xml')]
+    no_stylesheets = True
 
     def parse_feeds(self):
         feeds = BasicNewsRecipe.parse_feeds(self)
