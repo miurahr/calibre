@@ -1,5 +1,5 @@
 __license__ = 'GPL v3'
-__copyright__ = '2010, Hiroshi Miura <miurahr@linux.com>'
+__copyright__ = '2010,2017, Hiroshi Miura <miurahr@linux.com>'
 '''
 www.nikkei.com
 '''
@@ -15,6 +15,7 @@ class NikkeiNet(BasicNewsRecipe):
     masthead_url = 'http://parts.nikkei.com/parts/ds/images/common/logo_r1.svg'
     no_stylesheets = True
     remove_attributes = ['style']
+    remove_javascript = True
     oldest_article = 2
     max_articles_per_feed = 20
     language = 'ja'
@@ -72,7 +73,24 @@ class NikkeiNet(BasicNewsRecipe):
 
     keep_only_tags = [dict(id="CONTENTS_MAIN")]
     remove_tags = [
-        dict(name="form"),
-        {'class': "cmn-hide"},
+      dict(name="form"),
+      {'class':"JSID_baseBreaking_small"},
+      {'class':"cmn-breaking_news"},
+      {'class':"cmn-topic_path"},
+      {'class':"cmnc-title  cmnc-type1"},
+      {'class':"cmnc-open"},
+      {'class':"cmnc-close"},
+      {'class':"save-pulldown"},
+      {'class':"m-usefulToolsPulldown"},
+      {'class':"m-usefulTools"},
+      {'class':"m-articleRegist"},
+      {'class':"m-articleRegist_text"},
+      {'class':"m-articleRegist_button"},
+      {'class':"m-articleRegist_signup"},
+      {'class':"m-articleRegist_login"},
+      {'class':"a-vam"},
+      {'class':"cmn-hide"},
+      {'class':"m-block"},
+      {'href':"javascript:void(0)"},
     ]
-    remove_tags_after = {'class': "cmn-pr_list"}
+    remove_tags_after = {'class':"m-block"}
